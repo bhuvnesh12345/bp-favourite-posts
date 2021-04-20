@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>favourite posts</title>
+	<!-- Bootstrap core css -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+		.m{
+			width: 250px;
+			height: 250px;
+		}
+	</style>	
+</head>
+<body>
+	 <div class="container">
+    	<div class="jumbotron">
+    		<h1><span class="badge rounded-pill bg-success">Favourite Posts</span></h1>
+    		<p>A New Post Galary</p>
+    		<a class="btn btn-primary" href="/quotes"> Add a Post</a>
+    	</div>
+    	
+    	{% for k in result %}
+    		<div>
+    		   <img src="{{ k.image}}" class="m">
+    	    </div>
+    	    <div>
+    	    	<h3>{{ k.heading }}</h3>
+    	    	<p>{{ k.paragraph}}</p>
+    	    </div>
+    		{% endfor %}
+    </div>		
+   	
+
+	 <div style="margin-top:100px" class="container theme-showcase" role="main">
+			<!-- for loop starts -->
+			{% for k in result %}
+			<div style="color:#fff; background-color:blue">
+				<h1>{{ k.author }}</h1>
+			</div>
+			<div style="color:#fff; background-color:green">
+				<p>{{ k.quote }}</p>
+				
+			</div>
+			{% endfor %}
+			<!-- for loop ends here -->
+	</div><!--/container -->	
+	
+
+	
+
+</body>
+</html>
